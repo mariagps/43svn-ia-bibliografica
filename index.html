@@ -474,6 +474,103 @@
     color: var(--gray-text);
   }
 
+  /* ===== CONTACTO ===== */
+  .contacto {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .contacto-logo {
+    height: 48px;
+    margin-bottom: 0.75rem;
+  }
+  .contacto h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+  .contacto-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .contacto-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--blue);
+    text-decoration: none;
+  }
+  .contacto-link:hover { text-decoration: underline; }
+  .contacto-sep {
+    color: var(--gray-text);
+    font-size: 0.8rem;
+  }
+
+  /* ===== RESUMEN TABLE + QR ===== */
+  .resumen-layout {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: start;
+  }
+  .resumen-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .resumen-table thead th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-text);
+    padding: 0.5rem 0.75rem;
+    border-bottom: 2px solid var(--gray-bg);
+  }
+  .resumen-table tbody td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--gray-bg);
+    color: var(--navy);
+  }
+  .resumen-table tbody tr:last-child td { border-bottom: none; }
+  .resumen-table tbody tr:hover { background: var(--light-blue); }
+  .resumen-table td:last-child {
+    font-size: 0.78rem;
+    color: var(--gray-text);
+    white-space: nowrap;
+  }
+  .resumen-qr {
+    text-align: center;
+    min-width: 180px;
+  }
+  .qr-image {
+    width: 160px;
+    height: 160px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .qr-caption {
+    font-size: 0.72rem;
+    color: var(--gray-text);
+    margin-top: 0.5rem;
+    line-height: 1.4;
+    max-width: 180px;
+  }
+  .qr-url {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--blue);
+    margin-top: 0.25rem;
+    word-break: break-all;
+  }
+
   /* ===== KEYBOARD NAV ===== */
   .key-hint {
     font-size: 0.7rem;
@@ -623,49 +720,59 @@
       <div class="card-desc">Diagnóstico diferencial y plan de tratamiento a partir de la presentación clínica del paciente.</div>
     </div>
 
+    <div class="card no-video" onclick="openModal('deepresearch')">
+      <span class="card-number">9</span>
+      <span class="card-badge badge-mencion">Mención</span>
+      <div class="card-question">&laquo;Quiero una investigación a fondo&raquo;</div>
+      <div class="card-tool">Deep Research (ChatGPT)</div>
+      <div class="card-desc">Investigación bibliográfica exhaustiva con informe estructurado. Especifica las fuentes (PubMed, Cochrane) y pide referencias en Vancouver.</div>
+    </div>
+
   </div>
 
-  <!-- SUMMARY -->
-  <div class="summary">
-    <h3>Resumen rápido &mdash; &iquest;Cuál uso para qué?</h3>
-    <div class="summary-grid">
-      <div class="summary-item">
-        <div class="tool-name">OpenEvidence</div>
-        <div class="tool-use">Respuesta clínica rápida</div>
+  <!-- RESUMEN -->
+  <div class="section-label">Resumen</div>
+  <div class="summary" id="resumen">
+    <div class="resumen-layout">
+      <div class="resumen-table-wrap">
+        <h3>&iquest;Cuál uso para qué?</h3>
+        <table class="resumen-table">
+          <thead>
+            <tr><th>Necesidad</th><th>Herramienta</th><th>Coste</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Respuesta clínica rápida</td><td><strong>OpenEvidence</strong></td><td>Gratis</td></tr>
+            <tr><td>Buscar artículos sobre un tema</td><td><strong>Consensus</strong></td><td>Gratis/freemium</td></tr>
+            <tr><td>Organizar literatura para un artículo</td><td><strong>Elicit</strong></td><td>Freemium</td></tr>
+            <tr><td>Investigación bibliográfica a fondo</td><td><strong>Deep Research</strong> (ChatGPT)</td><td>Plus/Pro</td></tr>
+            <tr><td>Resumir, presentar o escuchar un paper</td><td><strong>NotebookLM</strong></td><td>Gratis/pago</td></tr>
+            <tr><td>Encontrar quién investiga tu tema</td><td><strong>Research Rabbit</strong></td><td>Freemium</td></tr>
+            <tr><td>Comprobar si un artículo se sostiene</td><td><strong>Scite.ai</strong></td><td>Freemium</td></tr>
+            <tr><td>Ayuda al diagnóstico diferencial</td><td><strong>Glass Health</strong></td><td>Freemium</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="summary-item">
-        <div class="tool-name">Consensus</div>
-        <div class="tool-use">Buscar artículos</div>
-      </div>
-      <div class="summary-item">
-        <div class="tool-name">ChatGPT</div>
-        <div class="tool-use">Generalista vs especialista</div>
-      </div>
-      <div class="summary-item">
-        <div class="tool-name">NotebookLM</div>
-        <div class="tool-use">Resumir y presentar</div>
-      </div>
-      <div class="summary-item">
-        <div class="tool-name">Elicit</div>
-        <div class="tool-use">Preparar artículo/revisión</div>
-      </div>
-      <div class="summary-item">
-        <div class="tool-name">Research Rabbit</div>
-        <div class="tool-use">Redes de investigación</div>
-      </div>
-      <div class="summary-item">
-        <div class="tool-name">Scite.ai</div>
-        <div class="tool-use">Verificar evidencia</div>
-      </div>
-      <div class="summary-item">
-        <div class="tool-name">Glass Health</div>
-        <div class="tool-use">Diagnóstico diferencial</div>
+      <div class="resumen-qr">
+        <img src="imagenes/qr-web.png" alt="QR para acceder a esta web" class="qr-image">
+        <div class="qr-caption">Escanea para acceder a esta web con todos los enlaces y vídeos</div>
+        <div class="qr-url">mariagps.github.io/43svn-ia-bibliografica</div>
       </div>
     </div>
   </div>
 
+  <!-- CONTACTO -->
+  <div class="contacto">
+    <img src="imagenes/alterbiblio-logo.png" alt="AlterBiblio" class="contacto-logo">
+    <h3>&iquest;Dudas? Contacta con nosotras</h3>
+    <div class="contacto-links">
+      <a href="mailto:info@alterbiblio.com" class="contacto-link">info@alterbiblio.com</a>
+      <span class="contacto-sep">&bull;</span>
+      <a href="https://www.linkedin.com/in/mariagps/" target="_blank" rel="noopener" class="contacto-link">LinkedIn de María</a>
+    </div>
+  </div>
+
   <div class="key-hint">
-    Navega con <kbd>1</kbd>-<kbd>8</kbd> para abrir herramientas &middot; <kbd>Esc</kbd> para cerrar &middot; <kbd>&larr;</kbd> <kbd>&rarr;</kbd> para cambiar
+    Navega con <kbd>1</kbd>-<kbd>9</kbd> para abrir herramientas &middot; <kbd>Esc</kbd> para cerrar &middot; <kbd>&larr;</kbd> <kbd>&rarr;</kbd> para cambiar
   </div>
 
 </div>
@@ -769,6 +876,15 @@ const tools = {
     questionEs: 'Caso: paciente con síndrome nefrótico, hipoalbuminemia, edemas',
     questionEn: 'Case: patient with nephrotic syndrome, hypoalbuminemia, edema',
     notes: '<strong>Sin vídeo — mención breve:</strong> Diagnóstico diferencial y plan de tratamiento basado en la presentación clínica. Como un compañero de guardia que ha leído todo. Útil para residentes y casos complejos.'
+  },
+  deepresearch: {
+    title: 'Quiero una investigación a fondo',
+    tool: 'Deep Research (ChatGPT)',
+    video: null,
+    image: null,
+    questionEs: 'Necesito una investigación en profundidad sobre [TEMA] teniendo en cuenta que sólo me interesa la evidencia publicada en revistas científicas revisadas por pares y en guías y protocolos clínicos. Redacta una sección de bibliografía al final con todas las referencias en formato Vancouver.',
+    questionEn: 'I need an in-depth investigation on [TOPIC] considering that I am only interested in evidence published in peer-reviewed scientific journals and in clinical guidelines and protocols. Write a bibliography section at the end with all references in Vancouver format.',
+    notes: '<strong>Actualización febrero 2026:</strong> OpenAI ha integrado el modelo o3 (thinking) en Deep Research, mejorando mucho la calidad de las investigaciones bibliográficas. <strong>Claves para usarlo bien:</strong> 1) Acotar las fuentes: sólo revistas revisadas por pares y guías clínicas (nada de blogs ni prensa). 2) Pedir explícitamente las referencias en formato Vancouver al final. 3) Verificar siempre las citas — sigue pudiendo cometer errores. <strong>Requiere ChatGPT Plus o Pro.</strong>'
   }
 };
 
@@ -864,7 +980,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') { navigateModal(1); return; }
 
   const num = parseInt(e.key);
-  if (num >= 1 && num <= 8) {
+  if (num >= 1 && num <= 9) {
     openModal(toolKeys[num - 1]);
   }
 });
