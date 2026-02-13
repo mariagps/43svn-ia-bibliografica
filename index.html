@@ -646,8 +646,8 @@
     </div>
   </div>
 
-  <!-- TOOLS WITH VIDEO -->
-  <div class="section-label">Herramientas con vídeo</div>
+  <!-- TOOLS - MAIN PRESENTATION FLOW -->
+  <div class="section-label">Herramientas principales</div>
   <div class="grid">
 
     <div class="card has-video" onclick="openModal('openevidence')">
@@ -674,8 +674,16 @@
       <div class="card-desc">Sí funciona, pero hay herramientas mejores para cada tarea. Comparación en vivo: ChatGPT vs Elicit con la misma búsqueda.</div>
     </div>
 
-    <div class="card has-video" onclick="openModal('notebooklm')">
+    <div class="card no-video" onclick="openModal('deepresearch')">
       <span class="card-number">4</span>
+      <span class="card-badge badge-mencion">Mención</span>
+      <div class="card-question">&laquo;Quiero una investigación a fondo&raquo;</div>
+      <div class="card-tool">Deep Research (ChatGPT)</div>
+      <div class="card-desc">Investigación bibliográfica exhaustiva con informe estructurado. Especifica las fuentes (PubMed, Cochrane) y pide referencias en Vancouver.</div>
+    </div>
+
+    <div class="card has-video" onclick="openModal('notebooklm')">
+      <span class="card-number">5</span>
       <span class="card-badge badge-video">Vídeo</span>
       <div class="card-question">&laquo;Ya tengo el artículo, &iquest;qué hago con él?&raquo;</div>
       <div class="card-tool">NotebookLM</div>
@@ -684,12 +692,12 @@
 
   </div>
 
-  <!-- TOOLS WITHOUT VIDEO -->
+  <!-- TOOLS - QUICK MENTIONS -->
   <div class="section-label">Otras herramientas (mención breve)</div>
   <div class="grid">
 
     <div class="card no-video" onclick="openModal('elicit')">
-      <span class="card-number">5</span>
+      <span class="card-number">6</span>
       <span class="card-badge badge-mencion">Mención</span>
       <div class="card-question">&laquo;Tengo que escribir un artículo&raquo;</div>
       <div class="card-tool">Elicit</div>
@@ -697,7 +705,7 @@
     </div>
 
     <div class="card no-video" onclick="openModal('researchrabbit')">
-      <span class="card-number">6</span>
+      <span class="card-number">7</span>
       <span class="card-badge badge-mencion">Mención</span>
       <div class="card-question">&laquo;&iquest;Quién más investiga lo mismo?&raquo;</div>
       <div class="card-tool">Research Rabbit</div>
@@ -705,7 +713,7 @@
     </div>
 
     <div class="card no-video" onclick="openModal('scite')">
-      <span class="card-number">7</span>
+      <span class="card-number">8</span>
       <span class="card-badge badge-mencion">Mención</span>
       <div class="card-question">&laquo;&iquest;Este artículo se sostiene?&raquo;</div>
       <div class="card-tool">Scite.ai</div>
@@ -713,19 +721,11 @@
     </div>
 
     <div class="card no-video" onclick="openModal('glass')">
-      <span class="card-number">8</span>
+      <span class="card-number">9</span>
       <span class="card-badge badge-mencion">Mención</span>
       <div class="card-question">&laquo;&iquest;La IA me ayuda con el diagnóstico?&raquo;</div>
       <div class="card-tool">Glass Health</div>
       <div class="card-desc">Diagnóstico diferencial y plan de tratamiento a partir de la presentación clínica del paciente.</div>
-    </div>
-
-    <div class="card no-video" onclick="openModal('deepresearch')">
-      <span class="card-number">9</span>
-      <span class="card-badge badge-mencion">Mención</span>
-      <div class="card-question">&laquo;Quiero una investigación a fondo&raquo;</div>
-      <div class="card-tool">Deep Research (ChatGPT)</div>
-      <div class="card-desc">Investigación bibliográfica exhaustiva con informe estructurado. Especifica las fuentes (PubMed, Cochrane) y pide referencias en Vancouver.</div>
     </div>
 
   </div>
@@ -806,6 +806,7 @@
 </div>
 
 <script>
+const toolOrder = ['openevidence', 'consensus', 'chatgpt', 'deepresearch', 'notebooklm', 'elicit', 'researchrabbit', 'scite', 'glass'];
 const tools = {
   openevidence: {
     title: 'Necesito una respuesta clínica, ya',
@@ -888,7 +889,7 @@ const tools = {
   }
 };
 
-const toolKeys = Object.keys(tools);
+const toolKeys = toolOrder;
 let currentTool = null;
 
 function openModal(key) {
