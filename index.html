@@ -689,7 +689,7 @@
           </thead>
           <tbody>
             <tr><td>Respuesta clínica rápida</td><td><strong>OpenEvidence</strong></td><td>Gratis</td></tr>
-            <tr><td>Buscar artículos sobre un tema</td><td><strong>Consensus</strong></td><td>Gratis/freemium</td></tr>
+            <tr><td>Buscar artículos sobre un tema</td><td><strong>Consensus</strong></td><td>Freemium</td></tr>
             <tr><td>Organizar literatura para un artículo</td><td><strong>Elicit</strong></td><td>Freemium</td></tr>
             <tr><td>Investigación bibliográfica a fondo</td><td><strong>Deep Research</strong> (ChatGPT)</td><td>Plus/Pro</td></tr>
             <tr><td>Resumir, presentar o escuchar un paper</td><td><strong>NotebookLM</strong></td><td>Gratis/pago</td></tr>
@@ -830,9 +830,9 @@ const tools = {
     tool: 'Deep Research (ChatGPT)',
     video: null,
     image: null,
-    questionEs: 'Necesito una investigación en profundidad sobre [TEMA] teniendo en cuenta que sólo me interesa la evidencia publicada en revistas científicas revisadas por pares y en guías y protocolos clínicos. Redacta una sección de bibliografía al final con todas las referencias en formato Vancouver.',
-    questionEn: 'I need an in-depth investigation on [TOPIC] considering that I am only interested in evidence published in peer-reviewed scientific journals and in clinical guidelines and protocols. Write a bibliography section at the end with all references in Vancouver format.',
-    notes: '<strong>Actualización febrero 2026:</strong> OpenAI ha integrado el modelo o3 (thinking) en Deep Research, mejorando mucho la calidad de las investigaciones bibliográficas. <strong>Claves para usarlo bien:</strong> 1) Acotar las fuentes: sólo revistas revisadas por pares y guías clínicas (nada de blogs ni prensa). 2) Pedir explícitamente las referencias en formato Vancouver al final. 3) Verificar siempre las citas — sigue pudiendo cometer errores. <strong>Requiere ChatGPT Plus o Pro.</strong>'
+    questionEs: 'Dietas hiperproteicas en adultos sanos y riesgo de enfermedad renal crónica: ¿son nefrotóxicas? Busca sólo en revistas revisadas por pares y guías clínicas. Referencias en formato Vancouver.',
+    questionEn: 'High-protein diets in healthy adults and chronic kidney disease risk: are they nephrotoxic? Search only peer-reviewed journals and clinical guidelines. Vancouver format references.',
+    notes: '<strong>Ejemplo real (cena del 43 SVN):</strong> Esta pregunta se lanzó en Deep Research durante el congreso. Resultado: informe de 13 páginas con resumen ejecutivo, análisis de ensayos clínicos y cohortes, tablas comparativas de estudios clave y 16 referencias Vancouver con enlaces directos. <strong>Estadísticas: 18 minutos de investigación autónoma · 213 búsquedas · 21 fuentes consultadas.</strong><br><br><strong>¿Qué son las 213 búsquedas?</strong> Deep Research usa o3 como agente autónomo que busca iterativamente: cada consulta a PubMed, Google Scholar, etc. genera resultados que le sugieren nuevas búsquedas más específicas. No es una búsqueda, son 213 encadenadas y refinadas durante 18 minutos.<br><br><strong>Claves para usarlo bien:</strong> 1) Acotar las fuentes: sólo revistas revisadas por pares y guías clínicas. 2) Pedir explícitamente las referencias en formato Vancouver. 3) Verificar siempre las citas. <strong>Requiere ChatGPT Plus o Pro.</strong>'
   }
 };
 
