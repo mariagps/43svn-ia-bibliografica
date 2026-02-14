@@ -184,6 +184,21 @@
     line-height: 1.5;
   }
 
+  .card-link {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--blue);
+    text-decoration: none;
+    margin-top: 0.5rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .card-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
   /* ===== SUMMARY BAR ===== */
   .summary {
     background: var(--white);
@@ -535,6 +550,13 @@
   }
   .resumen-table tbody tr:last-child td { border-bottom: none; }
   .resumen-table tbody tr:hover { background: var(--light-blue); }
+  .resumen-table a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+  .resumen-table a:hover {
+    text-decoration: underline;
+  }
   .resumen-table td:last-child {
     font-size: 0.78rem;
     color: var(--gray-text);
@@ -612,6 +634,7 @@
       <div class="card-question">&laquo;Necesito una respuesta clínica, ya&raquo;</div>
       <div class="card-tool">OpenEvidence</div>
       <div class="card-desc">Pregunta clínica en lenguaje natural &rarr; respuesta con evidencia y citas verificables. Gratuita, sólo para médicos.</div>
+      <a href="https://www.openevidence.com" target="_blank" rel="noopener" class="card-link" onclick="event.stopPropagation()">openevidence.com &rarr;</a>
     </div>
 
     <div class="card has-video" onclick="openModal('consensus')">
@@ -620,6 +643,7 @@
       <div class="card-question">&laquo;Quiero buscar artículos concretos&raquo;</div>
       <div class="card-tool">Consensus</div>
       <div class="card-desc">Búsqueda de papers con medidor de consenso científico. Muestra si la evidencia va en una dirección u otra.</div>
+      <a href="https://consensus.app" target="_blank" rel="noopener" class="card-link" onclick="event.stopPropagation()">consensus.app &rarr;</a>
     </div>
 
     <div class="card has-video" onclick="openModal('chatgpt')">
@@ -628,6 +652,7 @@
       <div class="card-question">&laquo;&iquest;ChatGPT no me vale?&raquo;</div>
       <div class="card-tool">ChatGPT</div>
       <div class="card-desc">Sí funciona, pero hay herramientas mejores para cada tarea. Comparación en vivo: ChatGPT vs Elicit con la misma búsqueda.</div>
+      <a href="https://chatgpt.com" target="_blank" rel="noopener" class="card-link" onclick="event.stopPropagation()">chatgpt.com &rarr;</a>
     </div>
 
     <div class="card no-video" onclick="openModal('deepresearch')">
@@ -636,6 +661,7 @@
       <div class="card-question">&laquo;Quiero una investigación a fondo&raquo;</div>
       <div class="card-tool">Deep Research (ChatGPT)</div>
       <div class="card-desc">Investigación bibliográfica exhaustiva con informe estructurado. Especifica las fuentes (PubMed, Cochrane) y pide referencias en Vancouver.</div>
+      <a href="https://chatgpt.com" target="_blank" rel="noopener" class="card-link" onclick="event.stopPropagation()">chatgpt.com &rarr;</a>
     </div>
 
     <div class="card has-video" onclick="openModal('notebooklm')">
@@ -644,6 +670,7 @@
       <div class="card-question">&laquo;Ya tengo el artículo, &iquest;qué hago con él?&raquo;</div>
       <div class="card-tool">NotebookLM</div>
       <div class="card-desc">Audio-resumen (podcast), preguntas al documento y esquemas para presentaciones. Sube el PDF y en 2 minutos tienes contenido.</div>
+      <a href="https://notebooklm.google.com" target="_blank" rel="noopener" class="card-link" onclick="event.stopPropagation()">notebooklm.google.com &rarr;</a>
     </div>
 
   </div>
@@ -658,6 +685,7 @@
       <div class="card-question">&laquo;Tengo que escribir un artículo&raquo;</div>
       <div class="card-tool">Elicit</div>
       <div class="card-desc">Organiza la literatura: extrae datos clave de cada paper, los compara en tabla, ahorra horas de lectura de abstracts.</div>
+      <a href="https://elicit.com" target="_blank" rel="noopener" class="card-link" onclick="event.stopPropagation()">elicit.com &rarr;</a>
     </div>
 
     <div class="card no-video" onclick="openModal('researchrabbit')">
@@ -666,6 +694,7 @@
       <div class="card-question">&laquo;&iquest;Quién más investiga lo mismo?&raquo;</div>
       <div class="card-tool">Research Rabbit</div>
       <div class="card-desc">Mapa visual de artículos relacionados, autores y redes de colaboración a partir de un paper de referencia.</div>
+      <a href="https://www.researchrabbit.ai" target="_blank" rel="noopener" class="card-link" onclick="event.stopPropagation()">researchrabbit.ai &rarr;</a>
     </div>
 
     <div class="card no-video" onclick="openModal('scite')">
@@ -674,6 +703,7 @@
       <div class="card-question">&laquo;&iquest;Este artículo se sostiene?&raquo;</div>
       <div class="card-tool">Scite.ai</div>
       <div class="card-desc">Analiza citas: cuántas apoyan, cuántas contradicen, cuántas sólo mencionan. No es lo mismo 50 citas que 50 citas con 20 en contra.</div>
+      <a href="https://scite.ai" target="_blank" rel="noopener" class="card-link" onclick="event.stopPropagation()">scite.ai &rarr;</a>
     </div>
 
     <div class="card no-video" onclick="openModal('glass')">
@@ -682,6 +712,7 @@
       <div class="card-question">&laquo;&iquest;La IA me ayuda con el diagnóstico?&raquo;</div>
       <div class="card-tool">Glass Health</div>
       <div class="card-desc">Diagnóstico diferencial y plan de tratamiento a partir de la presentación clínica del paciente.</div>
+      <a href="https://glass.health" target="_blank" rel="noopener" class="card-link" onclick="event.stopPropagation()">glass.health &rarr;</a>
     </div>
 
   </div>
@@ -697,14 +728,14 @@
             <tr><th>Necesidad</th><th>Herramienta</th><th>Coste</th></tr>
           </thead>
           <tbody>
-            <tr><td>Respuesta clínica rápida</td><td><strong>OpenEvidence</strong></td><td>Gratis</td></tr>
-            <tr><td>Buscar artículos sobre un tema</td><td><strong>Consensus</strong></td><td>Freemium</td></tr>
-            <tr><td>Organizar literatura para un artículo</td><td><strong>Elicit</strong></td><td>Freemium</td></tr>
-            <tr><td>Investigación bibliográfica a fondo</td><td><strong>Deep Research</strong> (ChatGPT)</td><td>Plus/Pro</td></tr>
-            <tr><td>Resumir, presentar o escuchar un paper</td><td><strong>NotebookLM</strong></td><td>Gratis/pago</td></tr>
-            <tr><td>Encontrar quién investiga tu tema</td><td><strong>Research Rabbit</strong></td><td>Freemium</td></tr>
-            <tr><td>Comprobar si un artículo se sostiene</td><td><strong>Scite.ai</strong></td><td>Freemium</td></tr>
-            <tr><td>Ayuda al diagnóstico diferencial</td><td><strong>Glass Health</strong></td><td>Freemium</td></tr>
+            <tr><td>Respuesta clínica rápida</td><td><a href="https://www.openevidence.com" target="_blank" rel="noopener"><strong>OpenEvidence</strong></a></td><td>Gratis</td></tr>
+            <tr><td>Buscar artículos sobre un tema</td><td><a href="https://consensus.app" target="_blank" rel="noopener"><strong>Consensus</strong></a></td><td>Freemium</td></tr>
+            <tr><td>Organizar literatura para un artículo</td><td><a href="https://elicit.com" target="_blank" rel="noopener"><strong>Elicit</strong></a></td><td>Freemium</td></tr>
+            <tr><td>Investigación bibliográfica a fondo</td><td><a href="https://chatgpt.com" target="_blank" rel="noopener"><strong>Deep Research</strong></a> (ChatGPT)</td><td>Plus/Pro</td></tr>
+            <tr><td>Resumir, presentar o escuchar un paper</td><td><a href="https://notebooklm.google.com" target="_blank" rel="noopener"><strong>NotebookLM</strong></a></td><td>Gratis/pago</td></tr>
+            <tr><td>Encontrar quién investiga tu tema</td><td><a href="https://www.researchrabbit.ai" target="_blank" rel="noopener"><strong>Research Rabbit</strong></a></td><td>Freemium</td></tr>
+            <tr><td>Comprobar si un artículo se sostiene</td><td><a href="https://scite.ai" target="_blank" rel="noopener"><strong>Scite.ai</strong></a></td><td>Freemium</td></tr>
+            <tr><td>Ayuda al diagnóstico diferencial</td><td><a href="https://glass.health" target="_blank" rel="noopener"><strong>Glass Health</strong></a></td><td>Freemium</td></tr>
           </tbody>
         </table>
       </div>
