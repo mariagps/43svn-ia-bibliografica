@@ -6,6 +6,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: false, theme: 'base', themeVariables: {primaryColor: '#E8F4FD', primaryTextColor: '#1B3A5C', primaryBorderColor: '#2B6CB0', lineColor: '#2B6CB0', fontSize: '13px'}});</script>
 <title>Herramientas IA para búsqueda bibliográfica | 43 SVN</title>
 <style>
 
@@ -383,6 +385,13 @@
     color: #5D4037;
   }
   .modal-notes strong { color: #E65100; }
+  .modal-notes .mermaid {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.75rem 0;
+    overflow-x: auto;
+  }
 
   .audio-player {
     margin-bottom: 1.25rem;
@@ -832,7 +841,7 @@ const tools = {
     image: null,
     questionEs: 'Dietas hiperproteicas en adultos sanos y riesgo de enfermedad renal crónica: ¿son nefrotóxicas? Busca sólo en revistas revisadas por pares y guías clínicas. Referencias en formato Vancouver.',
     questionEn: 'High-protein diets in healthy adults and chronic kidney disease risk: are they nephrotoxic? Search only peer-reviewed journals and clinical guidelines. Vancouver format references.',
-    notes: '<strong>Ejemplo real (cena del 43 SVN):</strong> Esta pregunta se lanzó en Deep Research durante el congreso. Resultado: informe de 13 páginas con resumen ejecutivo, análisis de ensayos clínicos y cohortes, tablas comparativas de estudios clave y 16 referencias Vancouver con enlaces directos. <a href="docs/deep-research-dietas-hiperproteicas.pdf" target="_blank" style="color:#2B6CB0;font-weight:600;">Ver el informe completo (PDF)</a>. <strong>Estadísticas: 18 minutos de investigación autónoma · 213 búsquedas · 21 fuentes consultadas.</strong><br><br><strong>¿Qué son las 213 búsquedas?</strong> Deep Research usa o3 como agente autónomo que busca iterativamente: cada consulta a PubMed, Google Scholar, etc. genera resultados que le sugieren nuevas búsquedas más específicas. No es una búsqueda, son 213 encadenadas y refinadas durante 18 minutos.<br><br><strong>Claves para usarlo bien:</strong> 1) Acotar las fuentes: sólo revistas revisadas por pares y guías clínicas. 2) Pedir explícitamente las referencias en formato Vancouver. 3) Verificar siempre las citas. <strong>Requiere ChatGPT Plus o Pro.</strong>'
+    notes: '<strong>Ejemplo real (cena del 43 SVN):</strong> Esta pregunta se lanzó en Deep Research durante el congreso. Resultado: informe de 13 páginas con resumen ejecutivo, análisis de ensayos clínicos y cohortes, tablas comparativas de estudios clave y 16 referencias Vancouver con enlaces directos. <a href="docs/deep-research-dietas-hiperproteicas.pdf" target="_blank" style="color:#2B6CB0;font-weight:600;">Ver el informe completo (PDF)</a>. <strong>Estadísticas: 18 minutos de investigación autónoma · 213 búsquedas · 21 fuentes consultadas.</strong><br><br><strong>¿Qué son las 213 búsquedas?</strong> Deep Research usa o3 como agente autónomo que busca iterativamente: cada consulta a PubMed, Google Scholar, etc. genera resultados que le sugieren nuevas búsquedas más específicas. No es una búsqueda, son 213 encadenadas y refinadas durante 18 minutos.<br><br><strong>Diagramas generados por Deep Research:</strong><div class="mermaid" id="mermaid-mechanism">flowchart TD\n  A["Ingesta proteica alta\n(g/kg/d o %E)"] --> B["Aumento de AA/urea\nseñales hormonales (p.ej. glucagón)"]\n  B --> C["Vasodilatación aferente /\ncambios hemodinámicos"]\n  C --> D["↑ GFR (hiperfiltración)\n↑ presión intraglomerular"]\n  D --> E["Si persistente + susceptibilidad:\n↑ estrés biomecánico"]\n  E --> F["Albuminuria/proteinuria"]\n  F --> G["Glomeruloesclerosis / fibrosis\n↓ eGFR"]\n  A --> H["Fuente proteica (carne roja,\nprocesados) y cofactores"]\n  H --> I["Carga ácida, fósforo,\nmetabolitos/microbiota"]\n  I --> E\n  J["Factores de susceptibilidad:\nobesidad, HTA, diabetes,\nhiperfiltración basal,\nmenor número de nefronas"] --> E</div><div class="mermaid" id="mermaid-timeline">flowchart LR\n  A["1999\nECA 6 meses\n(25%E proteína)"] --> B["2009\nCrossover 7 días\n(2,4 vs 1,2 g/kg/d)"]\n  B --> C["2010\nECA 12 meses\n(proteína por kg LBM)"]\n  C --> D["2012\nOmniHeart 6 semanas\n(25%E vs 15%E)"]\n  D --> E["2012\nECA 24 meses\nlow-carb/high-protein\nvs low-fat"]\n  E --> F["2014\nMetaanálisis ECA"]\n  F --> G["2018\nMetaanálisis ECA\n(≥1,5 g/kg/d o ≥20%E)"]\n  G --> H["2020\nKoGES 11,5 años\n(1,7 g/kg/d cuartil alto)"]\n  H --> I["2023\nUmbrella review\n(DGE guideline)"]\n  I --> J["2025\nMetaanálisis cohortes\nERC incidente"]</div><br><strong>Claves para usarlo bien:</strong> 1) Acotar las fuentes: sólo revistas revisadas por pares y guías clínicas. 2) Pedir explícitamente las referencias en formato Vancouver. 3) Verificar siempre las citas. <strong>Requiere ChatGPT Plus o Pro.</strong>'
   }
 };
 
@@ -896,6 +905,13 @@ function openModal(key) {
 
   document.getElementById('modal-overlay').classList.add('active');
   document.body.style.overflow = 'hidden';
+
+  // Render Mermaid diagrams if present
+  const mermaidDivs = document.querySelectorAll('#modal-notes .mermaid');
+  if (mermaidDivs.length > 0) {
+    mermaidDivs.forEach(div => { div.removeAttribute('data-processed'); });
+    mermaid.run({ nodes: mermaidDivs });
+  }
 }
 
 function closeModal() {
